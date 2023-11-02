@@ -10,20 +10,20 @@ name: Provider Design Feedback
 
 on:
   push:
-    branches: ['design-candidate*','swaggerhub*', 'main']
+    branches: ["design-candidate*", "swaggerhub*", "main"]
     paths:
-      - 'oas/**'
+      - "oas/**"
   pull_request:
-    branches: ['main']
+    branches: ["main"]
     paths:
-      - 'oas/**'
+      - "oas/**"
 
   workflow_dispatch:
 
 env:
   oas_file_location: oas/openapi.yaml
   application_name: pactflow-example-provider
-  PACT_BROKER_BASE_URL: https://test.pactflow.io
+  PACT_BROKER_BASE_URL: https://testpactci.pactflow.io
   PACT_BROKER_TOKEN: ${{ secrets.PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP }}
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
     # Remove the following condition to run this on your own fork
     if: ${{ github.repository_owner == 'pactflow' }}
     # This workflow is disabled by default to allow users to run the Consumer-Driven Contract
-    # testing workshop without distraction. By removing the condition, this workflow will 
+    # testing workshop without distraction. By removing the condition, this workflow will
     # upload an OpenAPI Design candidate showcasing Bi-Directional Contract testing
     # working alongside Bi-Directional Contract Testing
     runs-on: ubuntu-latest
